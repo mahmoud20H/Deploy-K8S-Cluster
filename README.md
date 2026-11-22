@@ -32,17 +32,17 @@ This cluster uses:
 | master1 | 192.168.1.10 | Control plane |
 | master2 | 192.168.1.11 | Control plane |
 | master3 | 192.168.1.12 | Control plane |
-| worker1 | 192.168.1.113 | Worker |
-| worker2 | 192.168.1.114 | Worker |
-| worker3 | 192.168.1.115 | Worker |
-| worker4 | 192.168.1.116 | Worker |
-| worker5 | 192.168.1.117 | Worker |
+| worker1 | 192.168.1.13 | Worker |
+| worker2 | 192.168.1.14 | Worker |
+| worker3 | 192.168.1.15 | Worker |
+| worker4 | 192.168.1.16 | Worker |
+| worker5 | 192.168.1.17 | Worker |
 
 ### Virtual IP
 
 | Component | Value |
 |---|---|
-| Kubernetes API VIP | 192.168.150.100 |
+| Kubernetes API VIP | 192.168.1.100 |
 | HAProxy bind port | 7443 |
 | Kubernetes API port | 6443 |
 
@@ -50,7 +50,7 @@ This cluster uses:
 
 ## Request Flow
 
-1. Administrator uses `kubectl` against the VIP `192.168.150.100:7443`
+1. Administrator uses `kubectl` against the VIP `192.168.1.100:7443`
 2. Keepalived ensures the VIP always exists on the active control-plane node
 3. HAProxy forwards API requests to healthy kube-apiserver instances
 4. kubeadm manages control-plane bootstrap and node joining
@@ -68,8 +68,6 @@ Deploy-K8S-Cluster/
 ├── haproxy/
 ├── keepalived/
 ├── kubeadm/
-│   ├── control-plane/
-│   └── worker/
 ├── cilium/
 ├── helm/
 ├── troubleshooting/
